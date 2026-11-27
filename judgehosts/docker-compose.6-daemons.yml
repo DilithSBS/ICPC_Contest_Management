@@ -1,0 +1,70 @@
+# 6-Daemon Judgehost Compose Template (for a 6 GB+ RAM Judgehost VM)
+# Usage:
+#   1. Update DOMSERVER_BASEURL, JUDGEDAEMON_PASSWORD, and the hostname prefix (e.g. jh1a)
+#      using a .env file or by editing the values below.
+#   2. Run: docker compose -f docker-compose.6-daemons.yml up -d
+
+x-judgehost-env: &judgehost-env
+  CONTAINER_TIMEZONE: Asia/Colombo
+  DOMSERVER_BASEURL: ${DOMSERVER_BASEURL:-http://YOUR_DOMSERVER_IP/}
+  JUDGEDAEMON_USERNAME: ${JUDGEDAEMON_USERNAME:-judgehost}
+  JUDGEDAEMON_PASSWORD: ${JUDGEDAEMON_PASSWORD:-your_password_here}
+  DOMJUDGE_CREATE_WRITABLE_TEMP_DIR: "0"
+  RUN_USER_UID_GID: "62860"
+
+x-judgehost-base: &judgehost-base
+  image: domjudge/judgehost:8.3.1
+  privileged: true
+  volumes:
+    - /sys/fs/cgroup:/sys/fs/cgroup
+  restart: unless-stopped
+
+services:
+  judgehost-0:
+    <<: *judgehost-base
+    container_name: judgehost-0
+    hostname: ${JH_PREFIX:-jh1a}-0
+    environment:
+      <<: *judgehost-env
+      DAEMON_ID: "0"
+
+  judgehost-1:
+    <<: *judgehost-base
+    container_name: judgehost-1
+    hostname: ${JH_PREFIX:-jh1a}-1
+    environment:
+      <<: *judgehost-env
+      DAEMON_ID: "1"
+
+  judgehost-2:
+    <<: *judgehost-base
+    container_name: judgehost-2
+    hostname: ${JH_PREFIX:-jh1a}-2
+    environment:
+      <<: *judgehost-env
+      DAEMON_ID: "2"
+
+  judgehost-3:
+    <<: *judgehost-base
+    container_name: judgehost-3
+    hostname: ${JH_PREFIX:-jh1a}-3
+    environment:
+      <<: *judgehost-env
+      DAEMON_ID: "3"
+
+  judgehost-4:
+    <<: *judgehost-base
+    container_name: judgehost-4
+    hostname: ${JH_PREFIX:-jh1a}-4
+    environment:
+      <<: *judgehost-env
+      DAEMON_ID: "4"
+
+  judgehost-5:
+    <<: *judgehost-base
+    container_name: judgehost-5
+    hostname: ${JH_PREFIX:-jh1a}-5
+    environment:
+      <<: *judgehost-env
+      DAEMON_ID: "5"
+

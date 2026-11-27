@@ -11,7 +11,15 @@ This repository contains a complete setup for managing an ICPC-style programming
     -   `presentationAdmin-2.6.1331/`: 🖥️ Administration tool for the presentation system.
     -   `presentations-2.6.1331/`: 📺 Client for displaying contest presentations (e.g., scoreboards).
     -   `resolver-2.6.1331/`: 📈 Tool for generating contest results and awards.
--   `judgehosts/`: 🧑‍💻 Configuration for connecting judgehosts to the DOMjudge system.
+-   `judgehosts/`: 🧑‍💻 Configuration for connecting judgehosts to the DOMjudge system (includes `docker-compose.yml` for 2 daemons and `docker-compose.6-daemons.yml` for 6 daemons).
+-   `problems/`: 📦 Sample DOMjudge problem packages (`example_question/` and `example_question.zip` with C, C++, Java, and Python 3 solutions).
+-   `docs/`: 📚 Setup, multi-server database, and problem-packaging guides.
+
+## 📚 Setup & Problem Guides
+
+-   [**Server Setup Guide**](./docs/SERVER_SETUP_GUIDE.md) ([PDF](./docs/SERVER_SETUP_GUIDE.pdf)): Step-by-step Ubuntu 22.04.5 LTS VM setup (NAT port forwarding, Windows Firewall, `cgroup v1`, Docker Engine, DOMserver, and Judgehost).
+-   [**Shared Database Config**](./docs/SHARED_DB_CONFIG.md) ([PDF](./docs/SHARED_DB_CONFIG.pdf)): Architecture and configuration for **3 DOMservers + 6 Judgehosts** sharing **1 MariaDB** database.
+-   [**Problem Package Guide (PDF)**](./docs/PROBLEM_PACKAGE_GUIDE.pdf): Non-technical guide for problem setters on creating `.zip` problem packages.
 
 ## 🚀 Quick Start
 

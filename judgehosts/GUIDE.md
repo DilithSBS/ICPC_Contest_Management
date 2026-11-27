@@ -1,5 +1,7 @@
 # 🧑‍💻 Setting Up DOMjudge Judgehosts
 
+> **Note for Campus LANs / NAT Mode:** If your LAN blocks Bridged VMs, use the updated NAT + Docker Engine runbook in [**SERVER_SETUP_GUIDE.md**](../docs/SERVER_SETUP_GUIDE.md) (and [**SHARED_DB_CONFIG.md**](../docs/SHARED_DB_CONFIG.md) for 3 DOMservers + 6 Judgehosts).
+
 This guide provides detailed instructions for setting up judgehosts to connect to your DOMjudge contest control system. For a robust setup, we recommend using at least two separate PCs as judgehosts, with each running at least two judgedaemons.
 
 ## 🖥️ Recommended Setup
