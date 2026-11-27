@@ -1,0 +1,6 @@
+name: "Sum of Two Numbers"
+author: "Problem Setter"
+source: "ICPC 2026"
+limits:
+  time_limit: 2.0
+  memory: 512
